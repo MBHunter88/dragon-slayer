@@ -1,11 +1,51 @@
-# Getting Started with Create React App
+## Dragon Slayer
+![home image](/dragon-slayer/public/dragon_slayer.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Dragon Slayer game! This is a fun, interactive web game built using React, where players engage in a fantasy battle against a fierce dragon. The goal is to defeat the dragon by strategizing your attacks and defenses while keeping an eye on your health. Will you emerge victorious, or will the dragon have the last roar? Play and find out!
 
-## Available Scripts
+## Table of Contents
+- [Overview](#overview)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Game Play Visuals](#game-play-visuals)
+- [Getting Started](#getting-started)
+- [Running the App](#running-the-app)
+
+
+## Overview
+Dragon Slayer is a simple, interactive game developed to practice React fundamentals, including state management, component interaction, and conditional rendering. Players can battle the dragon through various attack options, each impacting health points differently. Victory depends on skillful planning and a bit of luck!
+
+## Technologies
+
+The following technologies were used to build this app:
+
+- React: Built with React for component-based structure and interactivity.
+- CSS: Custom styles for UI components and health bars.
+- JavaScript: Core logic for game mechanics and state management.
+
+## Features
+
+- Attack and Retreat Options: Choose between an attack, or to retreat.
+- Health Monitoring: Both player and dragon have health that depletes with each successful hit.
+- Randomized Outcomes: The game uses random chance to vary the impact of attacks and defense moves, keeping gameplay dynamic.
+- Victory and Defeat Conditions: The game ends with either victory or defeat based on health points.
+
+## Game Play Visuals
+![town hall image](/dragon-slayer/public/d_s_img1.png)
+![cave fight image](/dragon-slayer/public/dsimg3.png)
+![dragon fight img](/dragon-slayer/public/dsimg2.png)
+## Getting Started
+
+To get a local copy of the project up and running, follow these steps.
+
+### Prerequisites
+
+- Node.js: [Download Node.js](https://nodejs.org/)
+- PostgreSQL: [Download PostgreSQL](https://www.postgresql.org/)
+
+### Installation
 
 In the project directory, you can run:
-
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -14,57 +54,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
