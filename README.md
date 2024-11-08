@@ -9,7 +9,7 @@ Welcome to the Dragon Slayer game! This is a fun, interactive web game built usi
 - [Features](#features)
 - [Game Play Visuals](#game-play-visuals)
 - [Getting Started](#getting-started)
-- [Running the App](#running-the-app)
+
 
 
 ## Overview
@@ -34,6 +34,7 @@ The following technologies were used to build this app:
 ![town hall image](/public/d_s_img1.png)
 ![cave fight image](/public/dsimg3.png)
 ![dragon fight img](/public/dsimg2.png)
+
 ## Getting Started
 
 To get a local copy of the project up and running, follow these steps.
