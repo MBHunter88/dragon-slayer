@@ -1,5 +1,5 @@
 ## Dragon Slayer
-![home image](/dragon-slayer/public/dragon_slayer.png)
+![home image](dragon-slayer/public/dragon_slayer.png)
 
 Welcome to the Dragon Slayer game! This is a fun, interactive web game built using React, where players engage in a fantasy battle against a fierce dragon. The goal is to defeat the dragon by strategizing your attacks and defenses while keeping an eye on your health. Will you emerge victorious, or will the dragon have the last roar? Play and find out!
 
@@ -31,9 +31,9 @@ The following technologies were used to build this app:
 - Victory and Defeat Conditions: The game ends with either victory or defeat based on health points.
 
 ## Game Play Visuals
-![town hall image](/dragon-slayer/public/d_s_img1.png)
-![cave fight image](/dragon-slayer/public/dsimg3.png)
-![dragon fight img](/dragon-slayer/public/dsimg2.png)
+![town hall image](dragon-slayer/public/d_s_img1.png)
+![cave fight image](dragon-slayer/public/dsimg3.png)
+![dragon fight img](dragon-slayer/public/dsimg2.png)
 ## Getting Started
 
 To get a local copy of the project up and running, follow these steps.
