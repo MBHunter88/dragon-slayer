@@ -6,6 +6,7 @@ import Store from '../Store';
 import Cave from '../Cave';
 import DragonFight from '../DragonFight';
 import usePlayer from '../Player';
+import TextModal from '../TextModal';
 
 //define App component 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
   //define player using usePlayer hook and initialize game modes
   const player = usePlayer();
   const [mode, setMode] = useState('start');
+  const [message, setMessage] = useState('');
 
   const changeMode = (newMode) => setMode(newMode);
   const onReturnClick = () => changeMode('townHall'); //add handler to return to previous mode
@@ -28,9 +30,10 @@ const App = () => {
           onReturnToStart={() => changeMode('start')}
         />
       )}
-      {mode === 'cave' && <Cave {...player} onReturnClick={onReturnClick} />}
+      {mode === 'cave' && <Cave {...player} onReturnClick={onReturnClick} setMessage={setMessage} />}
       {mode === 'store' && <Store {...player} setMode={setMode} onReturnClick={onReturnClick}/>}
-      {mode === 'dragonFight' && <DragonFight {...player} setMode={setMode} onReturnClick={onReturnClick}/>}
+      {mode === 'dragonFight' && <DragonFight {...player} setMode={setMode} onReturnClick={onReturnClick} setMessage={setMessage} />}
+      <TextModal message={message} onClose={() => setMessage('')} />
     </div>
   );
 };

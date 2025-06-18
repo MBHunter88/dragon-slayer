@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const TextModal = () => {
-const [text, setText] = useState("")
+const TextModal = ({ message, onClose }) => {
+  if (!message) return null;
 
-    return (
-        <>
-        
-        </>
-    )
-}
+  return (
+    <div className="text-modal-overlay">
+      <div className="text-modal">
+        <p>{message}</p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
 
-export default TextModal
+export default TextModal;

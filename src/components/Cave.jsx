@@ -4,7 +4,7 @@ import murlocimg from "./App/assests/murloc.png"
 import sludgerimg from "./App/assests/sludger.png"
 import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils"
 
-const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex }) => {
+const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex, setMessage }) => {
 
     const caveEnemies = [
         { name: 'Sludger', power: 2, health: 15 },
@@ -26,7 +26,7 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
     //function to hold logic for player attack
     const playerAttack = () => {
         if (!inventory[currentWeaponIndex]) {
-            alert("You don't have a weapon, go to the store buy one")
+            setMessage("You don't have a weapon, go to the store buy one");
             return;
         }
 
@@ -34,20 +34,20 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
             const damage = inventory[currentWeaponIndex]?.power + Math.floor(Math.random() * xp); //damage = weapon power + player xp factor
             setEnemyHealth(prevHealth => prevHealth - damage); //subtract damage from current health
             if (enemyHealth - damage <= 0) {
-                alert(`${enemy.name} defeated! You gained XP and gold!`);
+                setMessage(`${enemy.name} defeated! You gained XP and gold!`);
                 setXp(xp + enemyPower);
                 setGold(gold + 20);
                 setIsFighting(false);
                 return; //enemy defeated, stop further actions
             }
         } else {
-            alert("you missed!");
+            setMessage("you missed!");
         }
 
         const enemyDamage = enemyAttackValue(enemyPower, xp);
         setHealth(health - enemyDamage);
         if (health - enemyDamage <= 0) {
-            alert("You have been defeated! The game will reset.");
+            setMessage("You have been defeated! The game will reset.");
             resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
         }
     };

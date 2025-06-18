@@ -3,7 +3,7 @@ import "./App/App.css"
 import dragonimg from "./App/assests/dragonimg.jpg"
 import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils"
 
-const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventory, xp, setXp, currentWeaponIndex, setMode }) => {
+const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventory, xp, setXp, currentWeaponIndex, setMode, setMessage }) => {
     const dragon = { name: 'Dragon', power: 20, health: 300 };
     const [isFighting, setIsFighting] = useState(false);
 
@@ -21,7 +21,7 @@ const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventor
 
     const playerAttack = () => {
         if (!inventory[currentWeaponIndex]) {
-            alert("You don't have a weapon, go to the store buy one");
+            setMessage("You don't have a weapon, go to the store buy one");
             return;
         }
 
@@ -29,20 +29,20 @@ const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventor
             const damage = inventory[currentWeaponIndex]?.power + Math.floor(Math.random() * xp);
             setEnemyHealth(prevHealth => prevHealth - damage);
             if (enemyHealth - damage <= 0) {
-                alert(`${enemy.name} defeated! You gained XP and gold!`);
+                setMessage(`${enemy.name} defeated! You gained XP and gold!`);
                 setXp(xp + enemyPower);
                 setGold(gold + 100); // More gold for defeating the dragon
                 setIsFighting(false);
                 return;
             }
         } else {
-            alert("You missed!");
+            setMessage("You missed!");
         }
 
         const enemyDamage = enemyAttackValue(enemyPower, xp);
         setHealth(health - enemyDamage);
         if (health - enemyDamage <= 0) {
-            alert("You have been defeated by the Dragon! The game will reset.");
+            setMessage("You have been defeated by the Dragon! The game will reset.");
             resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
         }
     };
