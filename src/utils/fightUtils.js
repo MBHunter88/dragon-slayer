@@ -6,8 +6,8 @@ export const isEnemyHit = () => {
   return Math.random() > 0.2;
 };
 
-export const resetAfterDefeat = (setHealth, setEnemy, setIsFighting, setMode) => {
-  setHealth(100);
+export const resetAfterDefeat = (resetPlayer, setEnemy, setIsFighting, setMode) => {
+  resetPlayer();
   setEnemy(null);
   setIsFighting(false);
   setTimeout(() => {

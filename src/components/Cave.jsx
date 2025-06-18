@@ -5,7 +5,7 @@ import sludgerimg from "./App/assests/sludger.png";
 import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils";
 import useAudioManager from "../utils/useAudioManager";
 
-const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex, setMessage, isMuted }) => {
+const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex, setMessage, isMuted, resetPlayer }) => {
 
     const caveEnemies = [
         { name: 'Sludger', power: 2, health: 15 },
@@ -55,7 +55,7 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
         setMessage(`You took ${enemyDamage} damage!`);
         if (newHealth <= 0) {
             setMessage("You have been defeated! The game will reset.");
-            resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
+            resetAfterDefeat(resetPlayer, setEnemy, setIsFighting, setMode);
         }
     };
 
