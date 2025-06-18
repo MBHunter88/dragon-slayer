@@ -103,7 +103,6 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
             ) : (
                 <>
               <img src={sludgerimg} />
-                __
               <img src={murlocimg} />
                     <div className="button-container">
                         <button onClick={() => {
