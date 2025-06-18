@@ -50,8 +50,10 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
         }
 
         const enemyDamage = enemyAttackValue(enemyPower, xp);
-        setHealth(health - enemyDamage);
-        if (health - enemyDamage <= 0) {
+        const newHealth = health - enemyDamage;
+        setHealth(newHealth);
+        setMessage(`You took ${enemyDamage} damage!`);
+        if (newHealth <= 0) {
             setMessage("You have been defeated! The game will reset.");
             resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
         }
