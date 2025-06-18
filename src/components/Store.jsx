@@ -85,7 +85,7 @@ const Store = ({ onReturnClick, health, setHealth, gold, setGold, inventory, set
       <div className="game-container">
         <h1>Store</h1>
         <p>Buy weapons and supplies.</p>
-        <img src={witch} />
+        <img src={witch} alt="Shopkeeper witch" />
         <div className="player-stats">
           <p>Inventory: {inventory.length > 0 ? inventory.map(item => item.name).join(', ') : "Empty"}</p>
           <p>Gold: {gold}</p>
