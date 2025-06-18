@@ -4,8 +4,6 @@ import murlocimg from "./App/assests/murloc.png"
 import sludgerimg from "./App/assests/sludger.png"
 
 const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex }) => {
-     console.log("Current Weapon Index in Cave:", currentWeaponIndex);
-     console.log("Current Weapon Object in Cave:", inventory[currentWeaponIndex]);
 
     const caveEnemies = [
         { name: 'Sludger', power: 2, health: 15 },
@@ -39,10 +37,6 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
                 setIsFighting(false)
             } 
             //test
-            console.log("Enemy Health:", enemyHealth);
-            console.log("Damage to be dealt:", damage);
-            console.log("Inventory:", inventory);
-            console.log("Current xp:", xp);
 
         } else {
             alert("you missed!")
@@ -102,9 +96,14 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
                 </>
             ) : (
                 <>
+         codex/add-alt-text-for-images-in-components
               <img src={sludgerimg} alt="Sludger enemy" />
                 __
               <img src={murlocimg} alt="Murloc enemy" />
+
+              <img src={sludgerimg} />
+              <img src={murlocimg} />
+         main
                     <div className="button-container">
                         <button onClick={() => {
                             setEnemy(caveEnemies[0]);

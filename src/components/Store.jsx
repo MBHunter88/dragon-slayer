@@ -53,9 +53,6 @@ const Store = ({ onReturnClick, health, setHealth, gold, setGold, inventory, set
 
 
 
-  console.log("Current Weapon :", weapons[currentWeaponIndex]);
-  console.log("Next Weapon:", weapons[currentWeaponIndex + 1]);
-  console.log("Inventory before:", inventory);
 
 
 
@@ -63,9 +60,9 @@ const Store = ({ onReturnClick, health, setHealth, gold, setGold, inventory, set
   //sell (remove) items from inventory 
   const sellItem = () => {
     if (inventory.length > 0) { //make sure there is at least one item to sell
-      const lastItem = inventory.pop() // remove the last item from inventory
+      const updated = inventory.slice(0, -1) // create a new array without the last item
       setGold(gold + 15); //sell item for half the cost of original price
-      setInventory([...inventory]); //update inventory state
+      setInventory(updated); //update inventory state
       setCurrentWeaponIndex(currentWeaponIndex - 1) //decrement the currentWeapon by 1 to get previous weapon
     } else {
       alert("No items to sell!")
