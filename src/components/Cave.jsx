@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./App/App.css"
 import murlocimg from "./App/assests/murloc.png"
 import sludgerimg from "./App/assests/sludger.png"
+import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils"
 
 const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex }) => {
 
@@ -24,53 +25,32 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
 
     //function to hold logic for player attack
     const playerAttack = () => {
-        if (!inventory[currentWeaponIndex]){
+        if (!inventory[currentWeaponIndex]) {
             alert("You don't have a weapon, go to the store buy one")
+            return;
         }
+
         if (isEnemyHit()) { //if hit is landed
-            const damage = inventory[currentWeaponIndex]?.power + Math.floor(Math.random() * xp) //number of damage = the weapon power level + the calculated player xp
-            setEnemyHealth(prevHealth => prevHealth - damage) //subtract damage from current health to update state
+            const damage = inventory[currentWeaponIndex]?.power + Math.floor(Math.random() * xp); //damage = weapon power + player xp factor
+            setEnemyHealth(prevHealth => prevHealth - damage); //subtract damage from current health
             if (enemyHealth - damage <= 0) {
-                alert(`${enemy.name} defeated! You gained XP and gold!`)
+                alert(`${enemy.name} defeated! You gained XP and gold!`);
                 setXp(xp + enemyPower);
                 setGold(gold + 20);
-                setIsFighting(false)
-            } 
-            //test
-
+                setIsFighting(false);
+                return; //enemy defeated, stop further actions
+            }
         } else {
-            alert("you missed!")
+            alert("you missed!");
         }
-        const enemyDamage = enemyAttackValue();
-        setHealth(health - enemyDamage)
+
+        const enemyDamage = enemyAttackValue(enemyPower, xp);
+        setHealth(health - enemyDamage);
         if (health - enemyDamage <= 0) {
-            alert("You have been defeated! The game will reset.")
-            handleDefeat()
+            alert("You have been defeated! The game will reset.");
+            resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
         }
     };
-
-    //get enemy attack value based on enemy power and player xp
-    const enemyAttackValue = () => {
-        return enemyPower * 5 - Math.floor(Math.random() * xp)
-    };
-
-    //set 80% chance of player hitting enemy
-    const isEnemyHit = () => {
-        return Math.random() > 0.2
-    };
-
-
-    // player loses fight once health reaches 0 then game will reset
-    const handleDefeat = () => {
-        setHealth(100); // Reset player's health
-        setEnemy(null); // Clear the current enemy
-        setIsFighting(false); // Exit fight mode
-        setTimeout(() => {
-            setMode('start'); // Return to Start Menu
-        }, 2000); // Wait for 2 seconds before returning to start
-    }
-
-
 
     return (
 
