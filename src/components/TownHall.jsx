@@ -10,7 +10,7 @@ const TownHall = ({ onEnterCave, onEnterStore, onEnterDragonFight, onReturnToSta
     <p>This is the heart of your journey. From here, you can prepare for the battles ahead, 
       restock your supplies, or face your greatest challenge.</p><br>
       </br>
-      <img src={wizard} />
+      <img src={wizard} alt="Wise wizard offering guidance" />
       <p style={{color: "yellow"}}>Start in the store and buy some supplies.</p>
     <div className="button-container">
       <button onClick={onEnterStore}>Enter Store</button>

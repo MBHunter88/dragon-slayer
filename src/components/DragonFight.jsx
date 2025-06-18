@@ -69,7 +69,7 @@ const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventor
       </div>
       {isFighting ? (
         <>
-        <img src={dragonimg}/>
+        <img src={dragonimg} alt="Ferocious dragon" />
           <p>Dragon: {dragon.name} (Health: {dragon.health})</p>
           <div className="button-container">
           <button onClick={playerAttack}>Attack</button>

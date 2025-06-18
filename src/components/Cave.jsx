@@ -102,9 +102,9 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
                 </>
             ) : (
                 <>
-              <img src={sludgerimg} />
+              <img src={sludgerimg} alt="Sludger enemy" />
                 __
-              <img src={murlocimg} />
+              <img src={murlocimg} alt="Murloc enemy" />
                     <div className="button-container">
                         <button onClick={() => {
                             setEnemy(caveEnemies[0]);
