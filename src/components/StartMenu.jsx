@@ -2,7 +2,7 @@ import React from "react";
 import "./App/App.css";
 import dragonStartImg from "./App/assests/dragonbackground.png";
 
-const StartMenu = ({ onStart, isMuted, setIsMuted }) => {
+
     return (
         <>
         <div className="game-container">
@@ -14,7 +14,7 @@ const StartMenu = ({ onStart, isMuted, setIsMuted }) => {
           fearsome creatures, and protect the realm?</p>
         <div className="button-container">
         <button onClick={onStart}>Start Game</button>
-        <button onClick={() => setIsMuted(!isMuted)}>{isMuted ? 'Unmute' : 'Mute'}</button>
+
       </div>
       </div>
       </>
@@ -22,4 +22,4 @@ const StartMenu = ({ onStart, isMuted, setIsMuted }) => {
   };
   
   export default StartMenu;
-  
+

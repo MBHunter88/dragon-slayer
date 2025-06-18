@@ -29,6 +29,7 @@ The following technologies were used to build this app:
 - Health Monitoring: Both player and dragon have health that depletes with each successful hit.
 - Randomized Outcomes: The game uses random chance to vary the impact of attacks and defense moves, keeping gameplay dynamic.
 - Victory and Defeat Conditions: The game ends with either victory or defeat based on health points.
+- Persistent Player Progress: Your health, gold, inventory and experience are saved in your browser so you can continue later. Use the reset option in game to clear your progress.
 
 ## Game Play Visuals
 ![town hall image](/public/d_s_img1.png)
@@ -54,4 +55,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+
+### Running Tests
+
+Execute the unit tests with:
+
+```
+npm test
+```
+
+This command runs Jest in the project and executes all test files.
 

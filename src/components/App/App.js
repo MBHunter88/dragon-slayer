@@ -22,7 +22,6 @@ const App = () => {
 
   return (
     <div>
-      {mode === 'start' && <StartMenu onStart={() => changeMode('townHall')} isMuted={isMuted} setIsMuted={setIsMuted} />}
       {mode === 'townHall' && (
         <TownHall
           onEnterCave={() => changeMode('cave')}
