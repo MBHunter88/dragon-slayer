@@ -46,8 +46,10 @@ const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventor
         }
 
         const enemyDamage = enemyAttackValue(enemyPower, xp);
-        setHealth(health - enemyDamage);
-        if (health - enemyDamage <= 0) {
+        const newHealth = health - enemyDamage;
+        setHealth(newHealth);
+        setMessage(`You took ${enemyDamage} damage!`);
+        if (newHealth <= 0) {
             setMessage("You have been defeated by the Dragon! The game will reset.");
             resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
         }

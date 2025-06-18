@@ -40,9 +40,10 @@ describe('Cave combat', () => {
     render(<Wrapper />);
 
     await userEvent.click(screen.getByRole('button', { name: /fight sludger/i }));
+    await screen.findByText(/enemy: sludger \(health: 15\)/i);
     await userEvent.click(screen.getByRole('button', { name: /attack/i }));
 
-    expect(screen.getByText(/health: 95/i)).toBeInTheDocument();
+    await screen.findByText(/health: 95/i);
   });
 });
 

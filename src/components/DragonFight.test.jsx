@@ -40,9 +40,10 @@ describe('DragonFight combat', () => {
     render(<Wrapper />);
 
     await userEvent.click(screen.getByRole('button', { name: /fight dragon/i }));
+    await screen.findByText(/dragon: dragon \(health: 300\)/i);
     await userEvent.click(screen.getByRole('button', { name: /attack/i }));
 
-    expect(screen.getByText(/health: 95/i)).toBeInTheDocument();
+    await screen.findByText(/health: 95/i);
   });
 });
 
