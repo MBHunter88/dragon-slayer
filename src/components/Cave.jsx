@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react"
-import "./App/App.css"
-import murlocimg from "./App/assests/murloc.png"
-import sludgerimg from "./App/assests/sludger.png"
-import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils"
+import React, { useState, useEffect } from "react";
+import "./App/App.css";
+import murlocimg from "./App/assests/murloc.png";
+import sludgerimg from "./App/assests/sludger.png";
+import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils";
+import useAudioManager from "../utils/useAudioManager";
 
-const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex, setMessage }) => {
+const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex, setMessage, isMuted }) => {
 
     const caveEnemies = [
         { name: 'Sludger', power: 2, health: 15 },
         { name: 'Murloc', power: 8, health: 60 },
     ];
+    const { play } = useAudioManager(isMuted);
     const [isFighting, setIsFighting] = useState(false);
     const [enemy, setEnemy] = useState(null);
     const [enemyHealth, setEnemyHealth] = useState(null)
@@ -25,12 +27,14 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
 
     //function to hold logic for player attack
     const playerAttack = () => {
+        play('attack');
         if (!inventory[currentWeaponIndex]) {
             setMessage("You don't have a weapon, go to the store buy one");
             return;
         }
 
         if (isEnemyHit()) { //if hit is landed
+            play('hit');
             const damage = inventory[currentWeaponIndex]?.power + Math.floor(Math.random() * xp); //damage = weapon power + player xp factor
             setEnemyHealth(prevHealth => prevHealth - damage); //subtract damage from current health
             if (enemyHealth - damage <= 0) {
@@ -41,6 +45,7 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
                 return; //enemy defeated, stop further actions
             }
         } else {
+            play('miss');
             setMessage("you missed!");
         }
 
