@@ -21,7 +21,9 @@ const App = () => {
 
   return (
     <div>
-      {mode === 'start' && <StartMenu onStart={() => changeMode('townHall')} />}
+      {mode === 'start' && (
+        <StartMenu onStart={() => changeMode('townHall')} onReset={player.resetPlayer} />
+      )}
       {mode === 'townHall' && (
         <TownHall
           onEnterCave={() => changeMode('cave')}
