@@ -5,13 +5,13 @@ import TownHall from '../TownHall';
 import Store from '../Store';
 import Cave from '../Cave';
 import DragonFight from '../DragonFight';
-import Player from '../Player';
+import usePlayer from '../Player';
 
 //define App component 
 const App = () => {
 
-  //define player using Player component and initialeze game modes
-  const player = Player();
+  //define player using usePlayer hook and initialize game modes
+  const player = usePlayer();
   const [mode, setMode] = useState('start');
 
   const changeMode = (newMode) => setMode(newMode);

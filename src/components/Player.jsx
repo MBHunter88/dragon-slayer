@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import "./App/App.css"
 
 
-//define Player
-const Player = () => {
+//define usePlayer hook
+const usePlayer = () => {
 
   //initialize all Player stats
   const [health, setHealth] = useState(100);
@@ -28,4 +28,4 @@ const Player = () => {
   };
 };
 
-export default Player;
+export default usePlayer;
