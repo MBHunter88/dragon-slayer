@@ -14,3 +14,4 @@ const TextModal = ({ message, onClose }) => {
 };
 
 export default TextModal;
+

@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import "./App/App.css"
-import dragonStartImg from "./App/assests/dragonbackground.png"
+import React from "react";
+import "./App/App.css";
+import dragonStartImg from "./App/assests/dragonbackground.png";
 
-const StartMenu = ({ onStart, onReset }) => {
+
     return (
         <>
         <div className="game-container">
@@ -14,7 +14,7 @@ const StartMenu = ({ onStart, onReset }) => {
           fearsome creatures, and protect the realm?</p>
         <div className="button-container">
         <button onClick={onStart}>Start Game</button>
-        {onReset && <button onClick={onReset}>Reset Game</button>}
+
       </div>
       </div>
       </>
@@ -22,3 +22,4 @@ const StartMenu = ({ onStart, onReset }) => {
   };
   
   export default StartMenu;
+

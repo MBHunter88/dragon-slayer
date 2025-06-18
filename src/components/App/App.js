@@ -15,15 +15,13 @@ const App = () => {
   const player = usePlayer();
   const [mode, setMode] = useState('start');
   const [message, setMessage] = useState('');
+  const [isMuted, setIsMuted] = useState(false);
 
   const changeMode = (newMode) => setMode(newMode);
   const onReturnClick = () => changeMode('townHall'); //add handler to return to previous mode
 
   return (
     <div>
-      {mode === 'start' && (
-        <StartMenu onStart={() => changeMode('townHall')} onReset={player.resetPlayer} />
-      )}
       {mode === 'townHall' && (
         <TownHall
           onEnterCave={() => changeMode('cave')}
@@ -32,9 +30,9 @@ const App = () => {
           onReturnToStart={() => changeMode('start')}
         />
       )}
-      {mode === 'cave' && <Cave {...player} onReturnClick={onReturnClick} setMessage={setMessage} />}
+      {mode === 'cave' && <Cave {...player} onReturnClick={onReturnClick} setMessage={setMessage} isMuted={isMuted} />}
       {mode === 'store' && <Store {...player} setMode={setMode} onReturnClick={onReturnClick}/>}
-      {mode === 'dragonFight' && <DragonFight {...player} setMode={setMode} onReturnClick={onReturnClick} setMessage={setMessage} />}
+      {mode === 'dragonFight' && <DragonFight {...player} setMode={setMode} onReturnClick={onReturnClick} setMessage={setMessage} isMuted={isMuted} />}
       <TextModal message={message} onClose={() => setMessage('')} />
     </div>
   );
