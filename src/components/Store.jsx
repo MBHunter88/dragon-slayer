@@ -53,9 +53,6 @@ const Store = ({ onReturnClick, health, setHealth, gold, setGold, inventory, set
 
 
 
-  console.log("Current Weapon :", weapons[currentWeaponIndex]);
-  console.log("Next Weapon:", weapons[currentWeaponIndex + 1]);
-  console.log("Inventory before:", inventory);
 
 
 
