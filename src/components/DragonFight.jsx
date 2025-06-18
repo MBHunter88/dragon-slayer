@@ -4,7 +4,7 @@ import dragonimg from "./App/assests/dragonimg.jpg";
 import { enemyAttackValue, isEnemyHit, resetAfterDefeat } from "../utils/fightUtils";
 import useAudioManager from "../utils/useAudioManager";
 
-const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventory, xp, setXp, currentWeaponIndex, setMode, setMessage, isMuted }) => {
+const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventory, xp, setXp, currentWeaponIndex, setMode, setMessage, isMuted, resetPlayer }) => {
     const dragon = { name: 'Dragon', power: 20, health: 300 };
     const [isFighting, setIsFighting] = useState(false);
 
@@ -51,7 +51,7 @@ const DragonFight = ({ onReturnClick, health, setHealth, gold, setGold, inventor
         setMessage(`You took ${enemyDamage} damage!`);
         if (newHealth <= 0) {
             setMessage("You have been defeated by the Dragon! The game will reset.");
-            resetAfterDefeat(setHealth, setEnemy, setIsFighting, setMode);
+            resetAfterDefeat(resetPlayer, setEnemy, setIsFighting, setMode);
         }
     };
 
