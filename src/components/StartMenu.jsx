@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./App/App.css"
 import dragonStartImg from "./App/assests/dragonbackground.png"
 
-const StartMenu = ({ onStart }) => {
+const StartMenu = ({ onStart, onReset }) => {
     return (
         <>
         <div className="game-container">
@@ -14,6 +14,7 @@ const StartMenu = ({ onStart }) => {
           fearsome creatures, and protect the realm?</p>
         <div className="button-container">
         <button onClick={onStart}>Start Game</button>
+        {onReset && <button onClick={onReset}>Reset Game</button>}
       </div>
       </div>
       </>
@@ -21,4 +22,3 @@ const StartMenu = ({ onStart }) => {
   };
   
   export default StartMenu;
-  
