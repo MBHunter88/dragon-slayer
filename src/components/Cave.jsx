@@ -4,8 +4,6 @@ import murlocimg from "./App/assests/murloc.png"
 import sludgerimg from "./App/assests/sludger.png"
 
 const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setMode, xp, setXp, currentWeaponIndex }) => {
-     console.log("Current Weapon Index in Cave:", currentWeaponIndex);
-     console.log("Current Weapon Object in Cave:", inventory[currentWeaponIndex]);
 
     const caveEnemies = [
         { name: 'Sludger', power: 2, health: 15 },
@@ -39,10 +37,6 @@ const Cave = ({ onReturnClick, health, setHealth, gold, setGold, inventory, setM
                 setIsFighting(false)
             } 
             //test
-            console.log("Enemy Health:", enemyHealth);
-            console.log("Damage to be dealt:", damage);
-            console.log("Inventory:", inventory);
-            console.log("Current xp:", xp);
 
         } else {
             alert("you missed!")
